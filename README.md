@@ -1,4 +1,4 @@
-# Interactive Segmentaion ViT
+# Interactive Segmentation ViT
 
 This is a demo of [https://github.com/facebookresearch/segment-anything](https://github.com/facebookresearch/segment-anything) from Meta.
 
