@@ -37,3 +37,5 @@ If you want to use bigger models, you can download them from [here](https://gith
 ```shell
 python segment_image.py
 ```
+
+**Currently Tested with CPU only** You might need to make minor changes to use Cuda.
