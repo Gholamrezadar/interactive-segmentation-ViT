@@ -16,9 +16,9 @@ from ghdtimer import Timer
 # predictor = SamPredictor(sam)
 
 class SegmentApi():
-    def __init__(self) -> None:
+    def __init__(self, model_type='vit_b') -> None:
         self.device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
-        self.model_type = 'vit_b'
+        self.model_type = model_type
         self.model = None
         self.predictor = None
 

@@ -1,22 +1,17 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import cv2
-
 from segment_api import SegmentApi
-
 from ghdtimer import Timer
 
 # Load image
 image = cv2.imread('images/truck_low.jpg')
 image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-# cv2.imshow("Image", cv2.cvtColor(image, cv2.COLOR_RGB2BGR))
-# cv2.waitKey(0)
-# cv2.destroyAllWindows()
 
 # Inference
-timer = Timer()
+segment_api = SegmentApi(model_type='vit_b')
 
-segment_api = SegmentApi()
+timer = Timer()
 
 print("\nLoading model...")
 timer.tick()
@@ -28,14 +23,11 @@ timer.tick()
 segment_api.process_image(image)
 timer.tock()
 
-# print("\nSegmenting...")
-# timer.tick()
-# mask = segment_api.segment(location=[500, 300])
-# timer.tock()
-
 mask = np.zeros_like(image)
 org_image = image.copy()
-def drawfunction(event,x,y,flags,param):
+
+# Mouse callback function to get location
+def mouseCallback(event,x,y,flags,param):
     if event == cv2.EVENT_LBUTTONDOWN:
         image = org_image.copy()
         cv2.circle(image,(x,y),5,(0,255,0),-1)
@@ -51,8 +43,9 @@ def drawfunction(event,x,y,flags,param):
         cv2.imshow('image', cv2.cvtColor(image, cv2.COLOR_RGB2BGR))
 
 cv2.namedWindow('image')
-cv2.setMouseCallback('image',drawfunction)
+cv2.setMouseCallback('image', mouseCallback)
 
+# Main Loop
 cv2.imshow('image', cv2.cvtColor(image, cv2.COLOR_RGB2BGR))
 while(1):
     key=cv2.waitKey(1)

@@ -1,4 +1,4 @@
 /.vscode
 /Screenshot from 2023-05-11 19-11-18.png
 /__pycache__
-/models
+/models/sam_vit_b_01ec64.pth
