@@ -6,9 +6,10 @@ This is a demo of [https://github.com/facebookresearch/segment-anything](https:/
 
 ![screenshot](screenshot.png)
 
-<video>
-    <source src="segment_demo.mp4" type="video/mp4">
-</video>
+<!-- <video src="segment_demo.mp4"/> -->
+
+https://github.com/Gholamrezadar/interactive-segmentation-ViT/assets/13032600/a191496d-df7c-4f47-aacd-8526a1c19dcc
+
 
 ## Requirements
 
